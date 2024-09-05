@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  background: url(./src/images/celsius.webp) no-repeat center / cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 497px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search {
+  width: 100%;
+  height: 62px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(20px);
+  padding-left: 10px;
+  border-radius: 50px;
+  background-color: rgba($color: #ffffff, $alpha: 22%);
+  box-shadow: 0px 4px 4px rgba($color: #000000, $alpha: 25%);
+
+  &__img {
+    width: 39px;
+    height: 46px;
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    background: none;
+    font-family: "Poppins";
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+
+    &::placeholder {
+      color: black;
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.card {
+  border-radius: 50px;
+  height: 688px;
+  width: 100%;
+  background-color: rgba($color: #ffffff, $alpha: 22%);
+  box-shadow: 0px 4px 4px rgba($color: #000000, $alpha: 25%);
+  backdrop-filter: blur(3px);
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__info {
+    width: 100%;
+    height: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__current {
+    width: 292px;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(20px);
+    padding-left: 10px;
+    border-radius: 50px;
+    border: none;
+    background-color: rgba($color: #ffffff, $alpha: 22%);
+    box-shadow: 0px 4px 4px rgba($color: #000000, $alpha: 25%);
+    font-family: "Poppins";
+    color: black;
+    font-size: 22px;
+    font-weight: 800;
+
+    &__img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  &__city {
+    margin-top: 20px;
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 36px;
+  }
+  &__date {
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 20px;
+  }
+  &__temp {
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 80px;
+  }
+  &__image {
+    width: 170px;
+    height: 170px;
+  }
+  &__weather {
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 32px;
+  }
+}
