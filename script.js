@@ -2,24 +2,40 @@ const BASE_URL = "http://api.weatherapi.com/v1";
 const API_KEY = "d7cdf8ae43744760803135544240209";
 const searchForm = document.querySelector(".search");
 const cardInfo = document.querySelector(".card__info");
+const locationButton = document.querySelector(".card__current")
+
+locationButton.addEventListener("click", getWeatherWithLocation)
+
+function getWeatherWithLocation() {
+  const geolocation = navigator.geolocation;
+  function success(pos) {
+    getData(pos.coords.latitude + "," + pos.coords.longitude);
+  }
+  geolocation.getCurrentPosition(success, () => {}, {
+    enableHightAccuracy: true,
+  });
+}
+
+getWeatherWithLocation();
 
 searchForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  async function getData() {
-    const query = searchForm.querySelector(".search__input").value.trim();
-    if (!query) {
-      alert("Введите название города.");
-      return;
-    }
-    const data = await fetchCurrentWeather(query);
-    if (data && !data.error) {
-      render(data);
-    } else {
-      alert("Город не найден. Введите корректное название города.");
-    }
-  }
-  getData();
+
+  getData(searchForm.querySelector(".search__input").value.trim());
 });
+
+async function getData(query) {
+  if (!query) {
+    alert("Введите название города.");
+    return;
+  }
+  const data = await fetchCurrentWeather(query);
+  if (data && !data.error) {
+    render(data);
+  } else {
+    alert("Город не найден. Введите корректное название города.");
+  }
+}
 
 function render(data) {
   cardInfo.innerHTML = "";
